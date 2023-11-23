@@ -6,6 +6,6 @@
 - [x] Text
 - [x] TextInput
 - [x] Textarea
-- [ ] Checkbox
+- [x] Checkbox
 - [x] Avatar
-- [ ] MultiStep
+- [x] MultiStep
