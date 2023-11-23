@@ -1,4 +1,6 @@
-# Components
+# Ignite UI Design System
+
+## Components
 
 - [x] Button
 - [x] Box
