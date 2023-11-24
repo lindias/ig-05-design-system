@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType } from 'react'
+import { ComponentProps, ElementRef, ElementType, forwardRef } from 'react'
 import { Input, Prefix, TextInputContainer } from './styles'
 
 type IconProps = {
@@ -12,14 +12,16 @@ export type TextInputProps = ComponentProps<typeof Input> & {
   icon?: IconProps
 }
 
-export function TextInput({ prefix, icon: Icon, ...props }: TextInputProps) {
-  return (
-    <TextInputContainer>
-      {!!prefix && <Prefix>{prefix}</Prefix>}
-      {!!Icon && <Icon.value size={Icon.size} weight={Icon.weight} />}
-      <Input {...props} />
-    </TextInputContainer>
-  )
-}
+export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
+  ({ prefix, icon: Icon, ...props }: TextInputProps, ref) => {
+    return (
+      <TextInputContainer>
+        {!!prefix && <Prefix>{prefix}</Prefix>}
+        {!!Icon && <Icon.value size={Icon.size} weight={Icon.weight} />}
+        <Input ref={ref} {...props} />
+      </TextInputContainer>
+    )
+  },
+)
 
 TextInput.displayName = 'TextInput'
