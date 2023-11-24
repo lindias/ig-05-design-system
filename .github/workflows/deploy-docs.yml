@@ -16,9 +16,14 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18
+        cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
 
     - run: npm ci
     - run: npm run build
+      env:
+        TURBO_TOKEN: 5OQGG75WkcOPP0WCaa6YJwok
+        TURBO_TEAM: lindias
 
     - name: Deploy storybook
       working-directory: ./packages/docs
