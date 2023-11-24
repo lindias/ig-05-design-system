@@ -22,7 +22,7 @@ jobs:
     - run: npm ci
     - run: npm run build
       env:
-        TURBO_TOKEN: 5OQGG75WkcOPP0WCaa6YJwok
+        TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         TURBO_TEAM: lindias
 
     - name: Deploy storybook
